@@ -13,5 +13,6 @@ Some optimizations are missing:
 - naming conventions ("m_" prefix or "t_")
 - manipulate stack and heap memory more wisely and identify when copy / read only / move operations are needed
 - Code repetition in Game class
+- when fetching a component, study a way to use an alias and check for data availability like : ```using armor = getComponent...``` then nullptr can be check easily (nullptr == false)
 
 That was a focus on architecture and good practices (interfaces, modular, easy-to-extend) 
