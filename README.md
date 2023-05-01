@@ -3,7 +3,9 @@ Turn based Game sim written in C++ with ECS architecture
 
 Some optimizations are missing: 
 
-- Hard coded variables
+- Hard coded variables 
+- define preprocessor instr that can be modified to constexpr
+- possibly dangling pointers when the player is destroyed (weapon + armor) -> delete in destructor / std::make_unique / std::make_shared for more efficient memory blocks allocations and deallocations ? 
 - Headers that can be replaced with forward declarations
 - No check on components when == nullptr
 - const on functions that don't modify internal state + references
