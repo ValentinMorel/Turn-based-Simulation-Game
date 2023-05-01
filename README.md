@@ -19,7 +19,9 @@ Some optimizations are missing:
 - Use of initializer lists like this : ```std::vector<ModelObject> mos{mo1, mo2};``` instead of : ```std::vector<ModelObject> mos; mos.push_back(mo1); mos.push_back(mo2);``` 
 - no temp objects creations -> pass variables directly in functions like this : ```doSomething(getSomeModelObject(), getAnotherModelObject());```
 - Prefer ```unique_ptr``` over ```shared_ptr``` -> no need to keep a track of copies 
-
+- ++i better than i++ : Pre-increment is faster than post-increment because it does not require a copy of the object to be made.
+- Care about writing "\n" instead of '\n' : "\n" is interpreted as ```const char *``` and has to be parsed. '\n' on the other hand is known to be a single character and avoid a lot of CPU instructions.
+- use of reference instead of a pointer if the nullptr value is not acceptable... reference can't be null and that way, bounds the execution and bad behaviors.
 
 
 That was a focus on architecture and good practices (interfaces, modular, easy-to-extend) 
