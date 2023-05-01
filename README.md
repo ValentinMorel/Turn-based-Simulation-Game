@@ -19,4 +19,7 @@ Some optimizations are missing:
 - Use of initializer lists like this : ```std::vector<ModelObject> mos{mo1, mo2};``` instead of : ```std::vector<ModelObject> mos; mos.push_back(mo1); mos.push_back(mo2);``` 
 - no temp objects creations -> pass variables directly in functions like this : ```doSomething(getSomeModelObject(), getAnotherModelObject());```
 - Prefer ```unique_ptr``` over ```shared_ptr``` -> no need to keep a track of copies 
+
+
+
 That was a focus on architecture and good practices (interfaces, modular, easy-to-extend) 
