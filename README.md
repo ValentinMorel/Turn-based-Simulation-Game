@@ -14,5 +14,7 @@ Some optimizations are missing:
 - manipulate stack and heap memory more wisely and identify when copy / read only / move operations are needed
 - Code repetition in Game class
 - when fetching a component, study a way to use an alias and check for data availability like : ```using armor = getComponent...``` then nullptr can be check easily (nullptr == false)
+- memory footprint is way too high with 4 bytes values (int) -> can be optimized with short or int8 types
+- Rewrite class constructors with this style : ```Weapon(std::string&& name, int&& damage): m_name(name), m_damage(damage){}``` and default constructor (useful ?)
 
 That was a focus on architecture and good practices (interfaces, modular, easy-to-extend) 
