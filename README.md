@@ -4,7 +4,7 @@ Turn based Game sim written in C++ with ECS architecture
 Some optimizations are missing: 
 
 - Hard coded variables 
-- define preprocessor instr that can be modified to constexpr
+- define preprocessor instr that can be modified to constexpr or like this : ```static constexpr double PI = 3.14159;``` -> Compiler definitions and macros are replaced by the preprocessor before the compiler is ever run. This can make debugging very difficult because the debugger doesn't know where the source came from.
 - possibly dangling pointers when the player is destroyed (weapon + armor) -> delete in destructor / std::make_unique / std::make_shared for more efficient memory blocks allocations and deallocations ? 
 - Headers that can be replaced with forward declarations
 - No check on components when == nullptr
@@ -16,5 +16,7 @@ Some optimizations are missing:
 - when fetching a component, study a way to use an alias and check for data availability like : ```using armor = getComponent...``` then nullptr can be check easily (nullptr == false)
 - memory footprint is way too high with 4 bytes values (int) -> can be optimized with short or int8 types
 - Rewrite class constructors with this style : ```Weapon(std::string&& name, int&& damage): m_name(name), m_damage(damage){}``` and default constructor (useful ?)
-
+- Use of initializer lists like this : ```std::vector<ModelObject> mos{mo1, mo2};``` instead of : ```std::vector<ModelObject> mos; mos.push_back(mo1); mos.push_back(mo2);``` 
+- no temp objects creations -> pass variables directly in functions like this : ```doSomething(getSomeModelObject(), getAnotherModelObject());```
+- Prefer ```unique_ptr``` over ```shared_ptr``` -> no need to keep a track of copies 
 That was a focus on architecture and good practices (interfaces, modular, easy-to-extend) 
