@@ -25,3 +25,6 @@ Some optimizations are missing:
 
 
 That was a focus on architecture and good practices (interfaces, modular, easy-to-extend) 
+
+
+Work in progress (actively) to make it clean...
