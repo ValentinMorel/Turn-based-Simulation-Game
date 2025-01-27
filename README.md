@@ -1,6 +1,5 @@
 # Turn-based-Simulation-Game
-Turn based Game sim written in C++ with ECS architecture
-
+Turn based Game sim written in C++ 
 Some optimizations are missing: 
 
 - Hard coded variables 
